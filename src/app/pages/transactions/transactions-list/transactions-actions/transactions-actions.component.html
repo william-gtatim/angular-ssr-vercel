@@ -1,0 +1,85 @@
+@if(service.selectedTransactions().length > 0){
+    <div class="bar">
+        <h2 class="container-header">Transações Selecionadas</h2>
+        
+    </div>
+    <div class="transaction-toolbar">
+        <div class="transaction-toolbar-content">
+            @if(service.selectedTransactions().length > 1){
+                <app-button  (click)="service.selectedTransactions.set([])">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </app-button>
+                <p>{{service.selectedTransactions().length}} transações selecionadas</p>
+            }@else if (service.selectedTransactions().length == 1) {
+                <app-button (click)="service.selectedTransactions.set([])">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </app-button>
+                <p>1 transação selecionada</p>
+            }
+    
+        </div>
+
+        <p-menu #menu [model]="items" [popup]="true" appendTo="body" />
+        <app-button (click)="menu.toggle($event)">Ações</app-button>
+       
+    </div>
+    
+    <p-dialog [header]="dialogTitle()" [modal]="true" [(visible)]="dialogVisible" [style]="{ width: '27rem'}">
+        @if(actionType() === 'add-categories'){
+        <div>
+            @if(numberTransactionTypes() > 1){
+            <p class="text-xs mb-5 text-color-secondary">Você selecionou transações que são despesas e receitas. Selecione
+                apenas um
+                tipo de transação para adicionar categorias a múltiplas transações.</p>
+            }@else {
+            <!-- <app-categories-select [selectedCategory]="selectedCategory()" [transactionType]="transactionType()"
+                [selectedCategory]="selectedCategory()" (selectedCategoryChange)="selectedCategory.set($event)" /> -->
+    
+            <div class="flex justify-content-end mt-5">
+                <p-button label="Salvar" [loading]="savingCategories()" [disabled]="selectedCategory() != 0"
+                    (click)="onSaveCategories()" />
+            </div>
+            }
+    
+        </div>
+        }@else if(actionType() === 'delete') {
+        <p class="mb-5 text-color-secondary">Você tem certeza que deseja deletar as {{service.selectedTransactions().length}}
+            transações
+            selecionadas?</p>
+        <div class="flex justify-content-end mt-5">
+            <p-button label="Excluir" severity="danger" (click)="onDeleteTransactions()"
+                [loading]="deletingTransactions()" />
+        </div>
+        }@else if(actionType() === 'delete-categories'){
+        <p class="mb-5 text-color-secondary">Você tem certeza que deseja excluir as categorias das
+            {{service.selectedTransactions().length}} transações
+            selecionadas?</p>
+        <!-- <div class="flex justify-content-end mt-5">
+            <p-button label="Excluir categorias" severity="danger" (click)="onDeleteCategories()"
+                [loading]="deletingCategories()" />
+        </div> -->
+        }@else if(actionType() === 'update-spender'){
+        <app-select-spender [selectedSpenderId]="spenderId()" (selectedSpenderIdChange)="spenderId.set($event)" />
+    
+        <div class="flex justify-content-end mt-5">
+            <p-button label="Salvar" (click)="onUpdateSpender(spenderId()!)" [disabled]="spenderId() == null"
+                [loading]="updatingSpender()" />
+        </div>
+        }@else if(actionType() === 'edit-title'){
+        <input type="text" pInputText [(ngModel)]="transactionTitle" fluid placeholder="Descrição" />
+    
+        <div class="flex justify-content-end mt-5">
+            <p-button label="Salvar" (click)="onEditTitle()" [disabled]="transactionTitle() == ''"
+                [loading]="updatingTransactionTitle()" />
+        </div>
+        }
+    
+    
+    
+    
+    </p-dialog>
+}

@@ -1,1 +1,368 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import "tailwindcss";
+
+:root {
+
+
+    --text-color: var(--p-surface-800);
+    --text-color-secondary: var(--p-surface-600);
+    /* --page-background: #f0f4f9; */
+    --page-background: var(--p-surface-100);
+
+    color-scheme: light;
+}
+
+/* ----------------------------------------------------------------------- */
+/* Classes de Background Color */
+/* ----------------------------------------------------------------------- */
+
+/* Classes para Surface */
+.surface-0 {
+    background-color: var(--p-surface-0);
+}
+
+.surface-50 {
+    background-color: var(--p-surface-50);
+}
+
+.surface-100 {
+    background-color: var(--p-surface-100);
+}
+
+.surface-200 {
+    background-color: var(--p-surface-200);
+}
+
+.surface-300 {
+    background-color: var(--p-surface-300);
+}
+
+.surface-400 {
+    background-color: var(--p-surface-400);
+}
+
+.surface-500 {
+    background-color: var(--p-surface-500);
+}
+
+.surface-600 {
+    background-color: var(--p-surface-600);
+}
+
+.surface-700 {
+    background-color: var(--p-surface-700);
+}
+
+.surface-800 {
+    background-color: var(--p-surface-800);
+}
+
+.surface-900 {
+    background-color: var(--p-surface-900);
+}
+
+/* Classes para Primary */
+.primary {
+    background-color: var(--p-primary-500)
+}
+
+.primary-0 {
+    background-color: var(--p-primary-0);
+}
+
+.primary-50 {
+    background-color: var(--p-primary-50);
+}
+
+.primary-100 {
+    background-color: var(--p-primary-100);
+}
+
+.primary-200 {
+    background-color: var(--p-primary-200);
+}
+
+.primary-300 {
+    background-color: var(--p-primary-300);
+}
+
+.primary-400 {
+    background-color: var(--p-primary-400);
+}
+
+.primary-500 {
+    background-color: var(--p-primary-500);
+}
+
+.primary-600 {
+    background-color: var(--p-primary-600);
+}
+
+.primary-700 {
+    background-color: var(--p-primary-700);
+}
+
+.primary-800 {
+    background-color: var(--p-primary-800);
+}
+
+.primary-900 {
+    background-color: var(--p-primary-900);
+}
+
+/* ----------------------------------------------------------------------- */
+/* Classes de Cor de Texto */
+/* ----------------------------------------------------------------------- */
+
+/* Classes para Text-Surface */
+.text-color {
+    color: var(--p-text-color)
+}
+
+.text-color-secondary {
+    color: var(--p-surface-600)
+}
+
+.text-surface-0 {
+    color: var(--p-surface-0);
+}
+
+.text-surface-50 {
+    color: var(--p-surface-50);
+}
+
+.text-surface-100 {
+    color: var(--p-surface-100);
+}
+
+.text-surface-200 {
+    color: var(--p-surface-200);
+}
+
+.text-surface-300 {
+    color: var(--p-surface-300);
+}
+
+.text-surface-400 {
+    color: var(--p-surface-400);
+}
+
+.text-surface-500 {
+    color: var(--p-surface-500);
+}
+
+.text-surface-600 {
+    color: var(--p-surface-600);
+}
+
+.text-surface-700 {
+    color: var(--p-surface-700);
+}
+
+.text-surface-800 {
+    color: var(--p-surface-800);
+}
+
+.text-surface-900 {
+    color: var(--p-surface-900);
+}
+
+
+/* Classes para Text-Primary */
+.text-primary {
+    color: var(--p-primary-500);
+}
+
+.text-primary-0 {
+    color: var(--p-primary-0);
+}
+
+.text-primary-50 {
+    color: var(--p-primary-50);
+}
+
+.text-primary-100 {
+    color: var(--p-primary-100);
+}
+
+.text-primary-200 {
+    color: var(--p-primary-200);
+}
+
+.text-primary-300 {
+    color: var(--p-primary-300);
+}
+
+.text-primary-400 {
+    color: var(--p-primary-400);
+}
+
+.text-primary-500 {
+    color: var(--p-primary-500);
+}
+
+.text-primary-600 {
+    color: var(--p-primary-600);
+}
+
+.text-primary-700 {
+    color: var(--p-primary-700);
+}
+
+.text-primary-800 {
+    color: var(--p-primary-800);
+}
+
+.text-primary-900 {
+    color: var(--p-primary-900);
+}
+
+
+.border-surface {
+    border-color: var(--p-surface-200);
+}
+
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    font-size: 16px;
+    font-style: normal;
+    margin: 0px;
+
+}
+
+hr {
+    height: 1px;
+    background-color: var(--p-surface-200);
+    border: none;
+    width: 100%;
+    display: block
+}
+
+
+button.button-white {
+    background-color: #fff;
+    --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    background-color: #FFFFFF !important;
+    border-color: var(--p-surface-200) !important;
+    color: var(--p-surface-700) !important;
+}
+
+button.button-white:hover {
+    background-color: var(--p-surface-50) !important;
+}
+
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+
+
+}
+
+
+
+@media (max-width: 574px) {
+    .full-screen-dialog {
+        min-height: 100%;
+        border-radius: 0px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .mobile-full-height {
+        min-height: 100% !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        border-radius: 0 !important;
+    }
+}
+
+.date-picker-responsive {
+    z-index: 1200 !important;
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+
+.p-button-icon-only.p-button-lg {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+.money-text {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.07em;
+    white-space: nowrap;
+    color: var(--p-text-color);
+
+}
+
+.p-togglebutton-content {
+    padding: 5px 10px !important;
+    border-radius: 6px !important;
+}
+
+.p-togglebutton {
+    padding: 4px !important;
+}
+
+.p-tooltip-text {
+    font-size: 13px !important;
+}
+
+.p-dialog-title {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+.p-progressbar {
+    border-radius: 20px !important;
+}
+
+.p-progressbar-label {
+    font-size: 12px !important;
+}
+
+.p-button-label {
+    font-weight: 500 !important;
+}
+
+.p-knob-text {
+    font-size: 20px !important;
+    color: var(--text-color) !important;
+}
+
+/* .p-togglebutton.p-togglebutton-checked {
+    border-color: var(--p-primary-500)!important;
+    background-color: var(--p-primary-500) !important;
+    color: #fff!important;
+} */
+
+.p-avatar {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+}
+
+.text-xsm {
+    font-size: 0.75rem !important;
+}
+
+
+
+.shadow {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.text-red-500 {
+    color: rgba(255, 0, 0, 0.8) !important;
+}

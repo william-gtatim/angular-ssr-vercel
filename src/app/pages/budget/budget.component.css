@@ -1,0 +1,25 @@
+.header-title {
+    font-weight: 700;
+    color: var(--p-text-color);
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+svg {
+    fill: var(--p-text-color);
+}
+
+.date {
+    display: flex;
+    justify-content: end;
+}

@@ -1,0 +1,35 @@
+<app-card title="Planejamento  do mês">
+    <div class="font-medium" header-right>
+        @if(showButton()){
+        <div class="flex justify-end">
+            <button class="text-color cursor-pointer font-medium text-sm" (click)="router.navigate(['/category-expense'])">Ver
+                detalhes</button>
+        </div>
+        }
+    </div>
+    <section>
+        <div class="flex gap-3 flex-col md:flex-row">
+           
+            <div class="legend">
+                <div class="legend-area">
+                    <span>
+                        <div class="circle" [style.background-color]="bgColor()"></div>
+                        <p>Gasto</p>
+                    </span>
+                    <h3 class="font-medium whitespace-nowrap">{{service.expense()| currency: 'BRL' }}</h3>
+                </div>
+                <div class="legend-area">
+                   <span>
+                    <div class="circle" ></div>
+                    <p>Disponível</p>
+                   </span>
+                    <h3 class="font-medium whitespace-nowrap">{{service.budget() - service.expense()| currency : 'BRL'}}</h3>
+                </div>
+            </div>
+
+           
+        </div>
+        
+       
+    </section>
+</app-card>

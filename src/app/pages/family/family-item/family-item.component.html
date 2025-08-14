@@ -1,0 +1,11 @@
+<app-card padding="small">
+    <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center gap-5">
+            <i [ngClass]="getIcon() + ' text-primary'"></i>
+            <h2 class="font-medium">{{member().name}}</h2>
+        </div>
+        <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v " [text]="true" [rounded]="true"
+            severity="secondary" />
+    </div>
+    <p-menu #menu [model]="items" [popup]="true" appendTo="body" />
+</app-card>

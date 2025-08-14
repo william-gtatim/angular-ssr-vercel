@@ -1,0 +1,39 @@
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--p-surface-100);
+
+}
+
+a.create-account-link {
+    color: var(--p-primary-500);
+    font-weight: 500;
+}
+a.create-account-link:hover {
+    color: var(--p-primary-500);
+}
+
+.login-card {
+    padding: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-width: 400px;
+}

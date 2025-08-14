@@ -1,0 +1,74 @@
+@if(dataService.budget() > 0) {
+<div class="bg-white rounded-xl p-5 flex flex-col gap-5 divide-y divide-slate-200">
+
+    <!-- Linha superior: Planejado + Economia esperada -->
+    <div class="grid grid-cols-2 pb-5">
+        <!-- Gasto planejado -->
+        <div>
+            <div class="flex gap-1 items-center">
+                <p class="text-sm text-color-secondary">Gasto planejado</p>
+                <app-info text="Soma do gasto planejado para o mês em cada uma das categorias" />
+            </div>
+            <p class="md:text-lg font-semibold whitespace-nowrap text-color">
+                {{ dataService.budget() | currency : 'R$' }}
+            </p>
+        </div>
+
+        <!-- Economia esperada -->
+        <div>
+            
+            @if(averageLastMonths() > 0){
+                <div class="flex gap-1 items-center">
+                    <p class="text-sm text-color-secondary">Economia esperada</p>
+                    <app-info text="Valor calculado com base na renda do mês anterior" />
+                    </div>
+                <div class="flex gap-3">
+                    <p class="md:text-lg font-semibold whitespace-nowrap text-color">
+                        {{ save() | currency : 'R$' }}
+                    </p>
+                    <span class="inline-block mt-1 text-xs font-medium  px-2 py-1 rounded-full"
+                        [ngClass]="percentage() >= 0 ? 'text-green-500 bg-green-50': 'text-red-500 bg-red-50' ">
+                        {{ percentage() }}%
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Linha inferior: Meus objetivos -->
+    @if(goalsService.calculateMonthlySavingRequiredAllActiveGoals() > 0){
+    <div class="flex gap-5 items-center">
+        <div>
+            <div class="flex items-center gap-2">
+                <p class="text-sm text-color-secondary">Meus objetivos</p>
+                <app-info text="Valor que você deve guardar este mês para alcançar seus objetivos dentro do prazo que estipulou." />
+            </div>
+            <div class="flex gap-2">
+                <p class="md:text-lg font-semibold whitespace-nowrap text-color">
+                    {{ goalsService.calculateMonthlySavingRequiredAllActiveGoals() | currency : 'R$' }}
+                </p>
+                @if(goalsService.calculateMonthlySavingRequiredAllActiveGoals() <= save()){ <span
+                    class="inline-block mt-1 text-xs font-medium text-green-500 bg-green-50 px-2 py-1 rounded-full">
+                    Suficiente
+                    </span>
+                    }@else{
+                    <span class="inline-block mt-1 text-xs font-medium text-red-500 bg-red-50 px-2 py-1 rounded-full">
+                        Faltam {{getMissingValue() | currency : 'R$'}}</span>
+                    }
+            
+                    </div>
+        </div>
+        <div>
+            <button (click)="router.navigate(['/goals'])" class="cursor-pointer"><i class="pi pi-arrow-up-right"></i></button>
+        </div>
+    </div>
+    }@else {
+    <div class="text-sm text-color-secondary">
+        Você ainda não tem objetivos definidos. Crie um para ver se seu plano mensal cobre seus objetivos de longo
+        prazo. <a class="text-primary font-semibold cursor-pointer" (click)="router.navigate(['/goals'])">Criar
+            objetivo.</a>
+    </div>
+    }
+
+</div>
+}

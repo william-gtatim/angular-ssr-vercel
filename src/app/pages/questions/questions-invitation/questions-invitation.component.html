@@ -1,0 +1,43 @@
+@if(transactionsService.getTransactions().length > 5){
+    @if(showInvitation1() && !service.loading()){
+    <div class="bg-white rounded-xl p-6 mb-5">
+        <h2 class="text-lg font-semibold mb-4">Ajude a melhorar o Lúmia
+        </h2>
+    
+        <p class="mb-4">
+            Estamos acompanhando como o Lúmia tem contribuído para melhorar o bem-estar financeiro de quem usa.
+        </p>
+    
+        <p class="mb-4">
+            Para isso, convidamos você a responder um breve questionário — leva menos de 1 minuto. Depois de dois meses,
+            faremos uma nova rodada de perguntas para ver o quanto o aplicativo impactou sua vida financeira.
+        </p>
+
+    
+        <p class="mb-4">
+            Sua experiência pode ajudar a construir um app ainda mais útil para todos.
+        </p>
+    
+        <p-button label="Participar" fluid (click)="router.navigate(['/questions'])"></p-button>
+    </div>
+    }
+    
+    
+    @if (showInvitation2() && !service.loading()) {
+    <div class="bg-white rounded-xl p-6 mb-5">
+        <h2 class="text-lg font-semibold mb-4">Você usou o Lúmia. Agora queremos saber: fez diferença?</h2>
+    
+        <p class="mb-4">
+            Há dois meses, você respondeu um questionário sobre seu bem-estar financeiro. Agora chegou o momento de
+            comparar.
+        </p>
+    
+        <p class="mb-4">
+            Responda novamente — é rápido, leva menos de 1 minuto — e nos ajude a entender como o Lúmia impactou sua relação
+            com o dinheiro.
+        </p>
+    
+    
+        <p-button label="Responder agora" fluid (click)="router.navigate(['/questions'])"></p-button>
+    </div>   }
+}

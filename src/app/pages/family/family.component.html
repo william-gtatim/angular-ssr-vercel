@@ -1,0 +1,20 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <div class="font-semibold">
+            <app-header-back title="Família"  />
+        </div>
+    </div>
+    <div header-right>
+        <p-button label="Adicionar" [text]="true" (click)="memberToEdit.set(null); visibleEdit.set(true)" />
+    </div>
+    <div class="flex flex-col gap-5">
+        @for (item of authService.familyMembers(); track item.id) {
+    
+        <app-family-item [member]="item" (onEdit)="memberToEdit.set(item); visibleEdit.set(true)"
+            (onDelete)="memberToEdit.set(item);visibleDelete.set(true)" />
+    
+        }
+        </div>
+</app-page-template>
+<app-family-edit [(visible)]="visibleEdit" [member]="memberToEdit()" (editFinished)="memberToEdit.set(null)" />
+<app-family-item-delete [(visible)]="visibleDelete" [member]="memberToEdit()!" (visibleChange)="visibleDelete.set($event)" />

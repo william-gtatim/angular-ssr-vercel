@@ -1,0 +1,17 @@
+<app-card padding="small">
+    <div class="flex items-center justify-between">
+        <div class="flex gap-5 items-center">
+            <img [src]="getBankUrl(account().bank_logo)" class="h-10 w-10" />
+           
+            <div>
+                <h2 class="font-medium text-color">{{account().title}}</h2>
+                <p class="text-sm text-color-secondary">Saldo de <span [class]="balance() < 0 ? 'text-red-500 text-base': 'text-base text-color'">{{balance() | currency : 'BRL' }}</span> </p>
+            </div>
+            
+        </div>
+        <div class="rigth">
+            <p-menu #menu [model]="items" [popup]="true" appendTo="body" />
+            <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v" severity="secondary" variant="text" [rounded]="true" />
+            </div>
+    </div>
+</app-card>

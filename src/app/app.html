@@ -1,0 +1,8 @@
+<router-outlet />
+
+@if(isLoading()){
+<div class="loading-spinner">
+  <app-loading-spinner [loading]="isLoading()" />
+</div>
+}
+

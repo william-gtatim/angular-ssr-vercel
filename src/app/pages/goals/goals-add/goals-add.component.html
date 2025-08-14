@@ -1,0 +1,41 @@
+<app-dialog #datepicker header="Adicionar objetivo" [visible]="visible()" (visibleChange)="visibleChange.emit($event)" [fullScreen]="true">
+    <div class="flex flex-col gap-5">
+        
+        <div>
+            <label>Nome</label>
+            <p-iconfield>
+                <input id="description" pInputText class="w-full" [(ngModel)]="name" />
+                <p-inputicon styleClass="pi pi-pencil" />
+            </p-iconfield>
+
+        </div>
+        <div>
+            <label>Valor</label>
+            <app-input-currency [(value)]="cost" />
+        </div>
+
+        <div>
+            <label>Data de conclusão</label>
+            <p-date-picker dateFormat="dd/mm/yy" id="date" [(ngModel)]="term" 
+                [iconDisplay]="'input'" [touchUI]="isSmallScreen()" styleClass="w-full" panelStyleClass="date-picker-responsive" [showIcon]="true" [appendTo]="datepicker"
+                [readonlyInput]="true" [panelStyle]="{'position': 'fixed'}" [minDate]="today" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            @for (item of service.images(); track item.id) {
+            <div class="relative cursor-pointer overflow-hidden rounded-xl"
+                [ngClass]="{'ring-4 ring-blue-500 ring-offset-2 ring-offset-white': item.id === image()}"
+                (click)="image.set(item.id)">
+                <img [src]="'/assets/images/goals/' + item.image" class="w-full h-full object-cover">
+            </div>
+            }    </div>
+
+        <div class="flex justify-end gap-4">
+            <p-button label="cancelar" severity="secondary" text  />
+            <p-button [label]="goal() ? 'Atualizar': 'Salvar'" icon="pi pi-save" [disabled]="formInvalid()" (click)="onSave()"/>
+        </div>
+       
+
+    </div>
+
+</app-dialog>

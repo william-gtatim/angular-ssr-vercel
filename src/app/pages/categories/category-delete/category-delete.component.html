@@ -1,0 +1,10 @@
+<app-dialog [visible]="visible()" (visibleChange)="visibleChange.emit(false)" header="Deletar categoria">
+    @if(transactionNumber()){
+        <p>Essa categoria tem {{transactionNumber()}} {{transactionNumber() > 1 ? 'transações': 'transação'}} vinculadas a ela.
+            Para excluí-la, você precisa primeiro adicionar uma nova categoria a essas transações.</p>
+    }@else {
+        <p>Você tem certeza que deseja deletar essa categoria?</p>
+    }
+
+    <p-button [loading]="loading()" (click)="onDelete()" label="Deletar categoria" icon="pi pi-trash" [disabled]="transactionNumber() > 0" severity="danger" styleClass="w-full"/>
+</app-dialog>

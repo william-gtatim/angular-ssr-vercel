@@ -1,0 +1,12 @@
+<app-card [hover]="true">
+    <div class="content">
+        <div class="left">
+            <app-category-icon [categoryId]="category().id" />
+            <h2 class="m-0 font-semibold text-base">{{category().name}}</h2>
+        </div>
+        <div class="right">
+            <p-menu #menu [model]="items" [popup]="true" appendTo="body" />
+            <p-button (click)="menu.toggle($event); $event.stopPropagation()" icon="pi pi-ellipsis-v" severity="secondary" variant="text" [rounded]="true" />
+        </div>
+    </div>
+</app-card>

@@ -1,0 +1,42 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <app-header-back title="Meu Perfil" />
+    </div>
+    <div header-right>
+
+    </div>
+    <div class="pt-5 flex flex-col gap-5">
+        <div class="flex justify-center">
+            <img [src]="avatar()" alt="imagem de perfil" class="user-image">
+        </div>
+        <app-card title="Nome">
+            <div class="flex flex-col gap-3">
+                <p>{{this.authService.userName()}}</p>
+                <!-- <div>
+                    <input pInputText type="text" id="firs-name" [(ngModel)]="userName" />
+                </div>
+                <p-button label="Atualizar" (click)="onUpdateUserInfo()" [loading]="savingName()" /> -->
+            </div>
+        </app-card>
+
+        <app-card title="Email">
+            <p class="mb-2">{{this.authService.userEmail()}}</p>
+            <p class="text-sm text-color-secondary">No momento não é possível mudar o endereço de email de sua conta.
+            </p>
+        </app-card>
+
+        <app-card title="Deletar conta">
+            <p class="text-sm text-color-secondary mb-4">
+                Esta ação é irreversível e resultará na perda de todos os seus dados.
+            </p>              
+            <div class="flex gap-4 flex-col sm:flex-row">
+                <!-- <p-button label="Exportar Dados" severity="secondary" icon="pi pi-download" /> -->
+                <p-button label="Deletar Conta" icon="pi pi-trash" (click)="router.navigate(['delete-account'])"  />
+            </div>
+        </app-card>
+     
+
+
+
+    </div>
+</app-page-template>

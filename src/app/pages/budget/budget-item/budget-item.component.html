@@ -1,0 +1,24 @@
+<div class="item"  (click)="onSelecteCategory.emit(categoryExpense().categoryId)">
+    <div class="left">
+       <app-category-icon [categoryId]="categoryExpense().categoryId"/>
+       <div>
+            <h2 class="font-medium">{{categoryExpense().categoryTitle}}</h2>
+            <span class="subtitle">
+                {{categoryExpense().totalExpense| currency : 'R$'}}
+            </span>
+       </div>
+    </div>
+    <div class="right">
+        @if(budget() && categoryExpense().totalExpense){
+        <div class="flex gap-3 align-items-center">
+            <i [class]="icon() " ></i>
+            <div class="flex flex-col gap-1">
+                <p class="subtitle">Próximo mês</p>
+                <div class="money-text text-right">{{ budget()| currency : 'R$'}}</div>
+            </div>
+        </div>
+        }
+    </div>
+
+</div>
+

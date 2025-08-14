@@ -1,0 +1,27 @@
+@if(category()){
+<app-card class="flex flex-col gap-2" [hover]="true" (click)="router.navigate(['/category-expense', item()?.id])">
+    <div class="flex gap-3 items-center">
+        <app-icon-item [icon_id]="category()?.iconId!" [color_id]="category()?.colorId!" />
+        <div class="w-full">
+            <h2 class="font-medium">{{category()?.name}}</h2>
+            <div class="flex gap-2 items-center">
+                
+                <p class="whitespace-nowrap text-color-secondary text-sm"
+                    [ngClass]="getPercentage() > 100 ? 'text-red-500' : ''">{{getRemaing() | currency : 'BRL' }}</p>
+                    @if(getRemaing() >= 0){
+                        <p class="text-sm text-color-secondary">disponível</p>
+                    }
+            </div>
+        </div>
+    </div>
+    
+    <p-progressbar [value]="getPercentage()"  [style]="{ height: '8px' }" [style.backgroundColor]="getPercentage() > 100 ? 'bg-red-500' : ''" >
+        <ng-template #content let-value>
+            
+            </ng-template>
+    </p-progressbar>
+    <div class="text-xsm text-color-secondary">
+        Gasto {{categorySpending() | currency : 'BRL'}} de {{item()?.amount | currency : 'BRL'}}
+    </div>
+</app-card>
+}

@@ -1,0 +1,24 @@
+<main class="flex flex-col items-center justify-center min-h-screen text-center px-4">
+    <app-logo class="mb-5" />
+
+    <div class="bg-white rounded-2xl p-10 mb-5 w-[350px] max-w-[90%]">
+        <h1 class="mb-5 text-color font-medium text-2xl">Acesse sua conta</h1>
+
+        <p-button [loading]="loadingGoogle()" severity="secondary" variant="outlined" styleClass="w-full mb-4" (click)="onLoginGoogle()"
+            >
+            <img src="assets/images/google-icon.svg" alt="Google Icon" />
+            Login com o Google
+        </p-button>
+
+        <p class="text-xs text-slate-500">
+            Ao continuar, você concorda com nossos
+            <a routerLink="/terms" class="text-primary-700 underline hover:opacity-80">Termos de uso</a>.
+        </p>
+    </div>
+
+    <p class="text-sm text-slate-600">
+        Não tem uma conta?
+        <a class="text-primary-700 font-medium" routerLink="/register">Criar Conta</a>
+    </p>
+</main>
+  

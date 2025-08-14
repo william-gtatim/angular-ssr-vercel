@@ -1,0 +1,5 @@
+<p-menu #menu [model]="items" [popup]="true" appendTo="body" />
+
+<p-avatar [image]="authService.userAvatar()!" shape="circle" class="cursor-pointer"
+    [style]="{ 'background-color': '#dee9fc', color: '#1a2551' }" (click)="menu.toggle($event)" />
+   

@@ -1,0 +1,3 @@
+<p class="mb-1">Cole abaixo listas de compras de uma nota fiscal, dados de extrato bancário ou outro texto sem formatação com informações de transações</p>
+<textarea pTextarea rows="3" class="w-full mb-3" [(ngModel)]="text"></textarea>
+<p-button icon="pi pi-sparkles" label="Importar" size="small" [disabled]="text() == ''" (click)="onImportText()" [loading]="loading()"/>

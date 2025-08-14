@@ -1,0 +1,28 @@
+.card {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+p {
+    font-size: 0.875rem;
+    color: var(--p-text-muted-color);
+    display: flex;
+    gap: 5px;
+    margin-top: 2px;
+    align-items: center;
+}
+
+i {
+    color: var(--p-text-muted-color);
+}
+
+.icon {
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    flex-shrink: 0;
+}

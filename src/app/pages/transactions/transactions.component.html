@@ -1,0 +1,25 @@
+<app-page-template [headerFixed]="true" pageTitle="Transações">
+    <div header-right>
+        <div class="flex gap-1">
+            <app-transactions-filter />
+            <app-transactions-sort />
+        </div>
+    </div>
+    <div class="page-content">
+        <app-transactions-search />
+
+        <app-transactions-list />
+    </div>
+</app-page-template>
+
+
+
+
+
+<app-transaction-form />
+
+<app-transaction-add-button/>
+
+<app-categories-add />
+
+<app-transactions-actions />

@@ -1,0 +1,11 @@
+.add-button {
+    position: fixed;
+    bottom: 90px;
+    right: 15px;
+}
+
+@media (min-width: 768px) {
+    .add-button {
+        bottom: 20px;
+     }
+ }

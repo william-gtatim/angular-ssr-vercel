@@ -1,0 +1,53 @@
+.category-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+.title {
+    font-weight: 600;
+}
+.border {
+    border-bottom: solid 1px;
+    border-color: var(--p-surface-200);
+    padding-bottom: 10px;
+}
+
+.transaction-item {
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.item-border {
+    border-bottom: solid 1px;
+    border-color: var(--p-surface-300);
+}
+
+.transaction-date {
+    font-size: 14px;
+    color: var(--p-text-muted-color);
+}
+
+.content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.time-work {
+    white-space: nowrap;
+}
+
+.reflect-item {
+    display: flex;
+    gap: 20px;
+    background-color: var(--p-surface-100);
+    border-radius: 12px;
+    padding: 20px;
+    align-items: center;
+}

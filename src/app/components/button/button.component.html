@@ -1,1 +1,6 @@
-<button (click)="router.navigate(['/pagina-2'])">Ir para alguma lugar</button>
+<button>
+    <ng-content></ng-content>
+    @if(label()){
+        <span class="label">{{label()}}</span>
+    }
+</button>

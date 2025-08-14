@@ -1,0 +1,47 @@
+<app-page-template [showSidebar]="false" [headerFixed]="true">
+    <div header-left>
+        <app-header-back title="Questionário " />
+    </div>
+
+    <div class="flex items-center justify-center">
+        <app-loading-spinner [loading]="service.loading()" />
+    </div>
+    @if(!service.loading()){
+    @if(showQuestions()){
+    <app-card class="lg:p-5">
+        <div class="flex flex-col gap-4 mb-10">
+            <h1 class="text-3xl font-semibold mb-7">Questionário sobre bem-estar financeiro</h1>
+
+            @for (item of service.questions(); track item.id) {
+            <app-questions-item [question]="item" (selectedChange)="onSelectResponse(item.id, $event)" />
+            }
+        </div>
+        @if(!isValid()){
+        @if(responses().length < 16){ <p class="text-red-500 mb-10">Faltam {{17 - responses().length}} questões a serem respondidas</p>
+            }@if(responses().length == 16){
+            <p class="text-red-500 mb-10">Falta uma questão a ser respondida</p> }
+            }
+            <p-button label="Salvar" fluid (click)="onSave()" [loading]="saving()" [disabled]="showTanks()" />
+
+            @if(showTanks()){
+            <p class="text-center mt-5">Muito obrigado por sua resposta!</p>           }
+    </app-card>
+
+    }@else {
+    @if(service.responseTime() == 1){
+    <p class="text-center mt-10">Você já respondeu esse questionário uma vez. Aguarde passar dois meses da primeira
+        resposta para respondê-lo novamente.</p>
+    }@else {
+    <p class="text-center mt-10">Você já respondeu esse questionário</p>
+    } }
+
+
+   
+
+    }
+
+
+
+
+
+</app-page-template>

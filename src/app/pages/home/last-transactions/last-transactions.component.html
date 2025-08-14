@@ -1,0 +1,14 @@
+@if(transactions().length > 0){
+    <app-card title="Transações">
+        <div header-right>
+            <div id="button">
+                <button class="font-medium cursor-pointer text-sm" (click)="router.navigate(['/transactions'])">Ver todas</button>
+            </div>
+        </div>
+        
+        <div class="flex flex-col gap-7 mt-4">
+            @for (item of transactions(); track item.id) {
+            <app-transaction-item [transaction]="item" (click)="onEditTransaction(item.id)" />       }
+        </div>
+    </app-card>
+}

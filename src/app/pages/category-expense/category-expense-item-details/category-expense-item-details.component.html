@@ -1,0 +1,49 @@
+<app-page-template [showSidebar]="false" [headerFixed]="true">
+    <div header-left>
+        <app-header-back [title]="category()?.name!" />
+    </div>
+    <div class="flex justify-center mb-10">
+        <app-icon-item [color_id]="category()?.colorId!" [icon_id]="category()?.iconId!" size="extraLarge" />
+    </div>
+    
+    <div class="w-full flex flex-col gap-6 mb-10">
+        <div>
+            @if(getPercentage() > 100){
+                <p class="text-center ">Você excedeu o planejado em</p>
+            }@else {
+                <p class="text-center">Disponível</p>
+            }
+            <p class="text-center text-2xl font-semibold ">{{getRemaining() | currency : 'BRL' }}</p>
+        </div>
+        <div>
+            <p-progress-bar [value]="getPercentage()" [style]="{heigth: '13px'}" />
+            <div class="flex justify-between mt-2">
+                <div>
+                    <p >Gasto</p>
+                    <p class="font-semibold">{{expense() | currency : 'BRL' }}</p>
+                </div>
+                <div>
+                    <p >Planejado</p>
+                    <p class="font-semibold">{{budgetItem()?.amount | currency : 'BRL'}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-card title="Gastos da categoria">
+        <ul class="w-full flex flex-col gap-2 mt-7">
+            @for (item of transactions(); track $index) {
+        
+            <li (click)="onEdit(item.id)" class="flex justify-between items-center gap-8 pb-2 cursor-pointer" [ngClass]="!$last ? 'border-b border-surface' : ''">
+                <div>
+                    <p>{{item.title}}</p>
+                    <p class="text-sm text-color-secondary">{{item.date | date : 'dd MMMM'}}</p>
+                </div>
+                <p class="whitespace-nowrap font-medium">{{item.amount | currency : 'BRL'}}</p>
+            </li>
+            }
+        </ul>
+    </app-card>
+
+</app-page-template>
+<app-transaction-form />

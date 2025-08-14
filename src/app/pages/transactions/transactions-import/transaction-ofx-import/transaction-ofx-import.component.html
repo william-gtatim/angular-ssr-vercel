@@ -1,0 +1,17 @@
+<div class="file-upload card">
+    <h4 class="m-0">Importar OFX</h4>
+    <p>Exporte seus dados bancários em formato OFX e importe aqui.</p>
+    <div class="relative w-full max-w-xs">
+        <input type="file"  id="fileInput" class="hidden" (change)="onFileSelect($event)" accept=".ofx">
+        <label pButton severity="secondary"  for="fileInput">
+            Escolher arquivo OFX
+        </label>
+        <div class="flex gap-2 mt-4">
+            <p-checkbox [(ngModel)]="ignoreDuplicates"  [binary]="true" />
+            <label pTooltip="Ignora transações que possuem a mesma data e valor de transações já inseridas"  tooltipPosition="top">Ignorar transações duplicatas</label>
+        </div>
+    </div>
+    <app-loading-spinner [loading]="saving()"  />
+
+    
+</div>

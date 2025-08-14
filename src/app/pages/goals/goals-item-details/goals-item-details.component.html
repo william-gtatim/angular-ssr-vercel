@@ -1,0 +1,74 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <div class="font-semibold">
+            <app-header-back [title]="goal()?.name! " path="/goals"/>
+        </div>
+    </div>
+    <div header-right>
+
+    </div>
+    <div class="flex flex-col gap-5">
+        <app-card class="flex flex-col">
+            <img [src]="'/assets/images/goals/' + service.getImage(goal()!.image)" class="w-full h-[200px] object-cover rounded-2xl">
+            <div class="flex gap-2 items-center mb-10 mt-5">
+                <div>
+                    <h2 class="font-medium mb-1">{{goal()?.name}}</h2>
+                    <div class="flex gap-2">
+                        <i class="pi pi-calendar text-color-secondary"></i>
+                        <p class="text-sm text-color-secondary">{{goal()?.term | date : 'dd MMMM YYYY'}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-8">
+                <div class="flex justify-center">
+                    <p-knob [ngModel]="service.getSavedPercentage(goal()?.id!)" valueTemplate="{value}%" [size]="200" />
+                </div>
+
+                <p class="text-lg font-medium text-center">
+                    {{service.calculateSavedAmount(goal()?.id!) | currency : 'R$'}} de {{goal()?.cost | currency :
+                    'R$'}}
+                </p>
+
+                @if(goal()?.status !== 'completed'){
+                    @if(monthsRemaining() > 1){
+                    <p>Você precisa economizar {{savingRequired() | currency : 'R$'}} por mês nos próximo
+                        {{monthsRemaining()}} mêses para atingir seu objetivo</p>
+                    }@else {
+                    <p>Você precisa economizar {{savingRequired() | currency : 'R$'}} esse mês para atingir seu objetivo</p>       }
+                }
+
+                @if(hasTransactions()){
+                <div class="flex justify-center">
+                    <ul class="w-[300px] flex flex-col gap-2">
+                        @for (item of goal()?.transactions; track item.id) {
+                        <li class="flex justify-between items-center text-sm text-color-secondary">
+                            <p>{{item.created_at | date : 'dd MMMM YYYY'}}</p>
+                            <p>{{item.amount | currency : 'R$'}}</p>
+                        </li>
+                        }
+                    </ul>
+                </div>
+                }
+
+                @if(goal()?.status !== 'completed'){
+                <div class="flex gap-3 flex-col md:flex-row justify-center items-center">
+                    
+                    <p-button label="Concluir objetivo" (click)="onFinishGoal()" [loading]="loading()" variant="outlined"/>
+                    <p-button label="Adicionar depósito" (click)="visible.set(true)"  />
+                </div>
+                }
+            </div>
+
+        </app-card>
+    </div>
+</app-page-template>
+<app-dialog [(visible)]="visible" header="Adicionar depósito" size="small">
+    <div class="mt-1 mb-5">
+        <label>Valor</label>
+        <app-input-currency [(value)]="ammountToSave" />
+    </div>
+    <div class="flex justify-end">
+        <p-button label="Salvar" icon="pi pi-save" (click)="onSave()" [loading]="saving()" />
+    </div>
+</app-dialog>

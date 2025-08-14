@@ -1,0 +1,94 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.expense-or-income {
+    display: flex;
+    gap: 10px;
+}
+
+.expense-or-income-button {
+    all: unset;
+    padding: 0px;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--p-surface-500);
+    cursor: pointer;
+}
+
+.expense-or-income-button.expense {
+    color: var(--p-red-500)!important;
+}
+
+.expense-or-income-button:hover {
+    color: var(--p-primary-500);
+}
+
+.expense-or-income-button.selected {
+    color: var(--p-primary-500);
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#value-input {
+    all: unset;
+    display: block;
+    font-size: 30px;
+    color: var(--p-surface-500);
+    width: 100%;
+
+}
+
+#value-input.income {
+    color: var(--p-primary-500);
+}
+
+#value-input.expense {
+    color: var(--p-red-500);
+}
+
+.categories-row {
+    width: 100%;
+}
+.select-categories {
+    display: block;
+    width: 100%;
+}
+
+.category {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.category-icon {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+
+}
+
+.material-symbols-rounded {
+    font-size: 16px;
+}
+
+.buttons-form {
+    display: flex;
+    gap:10px;
+    width: 100%;
+}
+
+.date-picker {
+    position: relative;
+}

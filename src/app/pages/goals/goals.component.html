@@ -1,0 +1,38 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <div class="font-semibold">
+            <app-header-back title="Objetivos" path="/all-resources" />
+        </div>
+    </div>
+    <div header-right>
+        <p-button label="Adicionar" [text]="true" (click)="itemToEdit.set(null); visibleAddGoal.set(true)" />
+    </div>
+    <div class="flex flex-col gap-5">
+        @if(service.loading()){
+        <div class="flex justify-center">
+            <app-loading-spinner [loading]="service.loading()" />
+        </div>
+        }@else if(!service.loading() && service.goals().length == 0){
+        <app-goals-empty (addGoal)="visibleAddGoal.set(true)" />
+        }@else {
+        <div class="flex flex-col gap-6">
+            <div class="flex justify-center">
+                <p-selectbutton [options]="tabItems()" [(ngModel)]="selectedStatus" optionLabel="label" optionValue="value" aria-labelledby="basic" />
+
+            </div>
+            @if(filteredGoals().length > 0){
+               <div class="grid grid-cols-1 md:grid-cols-2  gap-4">
+                @for (item of filteredGoals(); track item.id) {
+                <app-goals-item [goal]="item" (edit)="onEdit(item)" />
+                }
+               </div>
+            }@else {
+                <p class="text-sm text-color-secondary italic text-center p-4">Você não tem nenhum objetivo com o status de "{{getStatusName(selectedStatus())}}" atualmente.</p>
+            }
+            
+
+        </div>
+        }
+    </div>
+</app-page-template>
+<app-goals-add [(visible)]="visibleAddGoal" [goal]="itemToEdit()"/>

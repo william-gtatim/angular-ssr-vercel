@@ -1,0 +1,16 @@
+
+<p-button pTooltip="Ordenar dados" tooltipPosition="left" (click)="visibleDialog.set(true)" text rounded icon="pi pi-sort-alt" severity="secondary"/>
+
+<p-dialog [(visible)]="visibleDialog" [modal]="true" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }" [dismissableMask]="true"  [showHeader]="false">
+    
+    <div class="dialog-body">
+        <p>Ordernar por</p>
+        <p-select [options]="items" [(ngModel)]="selectedCriterion" optionLabel="name" optionValue="value" placeholder="Classificar por"
+            class="w-full" appendTo="body" />
+
+        <p-select [options]="directions" [(ngModel)]="selectedDirection" optionLabel="name" optionValue="value" class="w-full" appendTo="body" />
+
+        <p-button label="Ver Resultados" (click)="onSort()" styleClass="w-full" [disabled]="selectedCriterion() == null || selectedDirection() == null"/>
+    </div>
+
+</p-dialog>

@@ -1,0 +1,30 @@
+@if(label()){
+<label>{{labelText()}}</label>
+}
+<p-select [options]="options()" [ngModel]="selected()" (ngModelChange)="selectedChange.emit($event)" optionLabel="title"
+    optionValue="id" [placeholder]="placeholder()" appendTo="body" class="w-full">
+    <ng-template #selectedItem let-selectedOption>
+        @if(selectedOption){
+        <div class="flex items-center gap-2">
+            <img [src]="service.getBankUrl(selectedOption.bank_logo)" class="h-6 w-6" />
+            <div>{{ selectedOption.title }}</div>
+        </div>
+        }
+    </ng-template>
+    <ng-template let-account #item>
+        <div class="flex items-center gap-2">
+            <img [src]="service.getBankUrl(account.bank_logo)" class="h-6 w-6" />
+            <div>{{ account.title }}</div>
+        </div>
+    </ng-template>
+
+
+    <ng-template #dropdownicon>
+        <i class="pi pi-wallet"></i>
+    </ng-template>
+    <ng-template #footer>
+        <div class="p-3 hidden">
+            <p-button label="Adicionar nova conta" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+        </div>
+    </ng-template>
+</p-select>

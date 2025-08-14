@@ -1,0 +1,23 @@
+<div class="flex justify-between items-center gap-3 cursor-pointer hover" (click)="onSelect()">
+    <div class="flex gap-2 items-center">
+        <div 
+            class="category-icon" 
+            [style.background-color]="categoriesService.getColor(transaction().category)">
+            <span class="material-symbols-rounded filled icon">
+                {{categoriesService.getIcon(transaction().category)}}
+            </span>
+        </div>
+        <div class="flex flex-col">
+            <h4 class="font-medium text-sm">
+                {{transaction().title}}
+            </h4>
+            <p class="text-xsm  text-color-secondary">{{transactionService.getSpenderName(transaction().spender)}}</p>
+        </div>
+        
+    </div>
+    <div>
+        <p [ngClass]="transaction().type == 'expense' ? 'text-red-500' : '' " class="whitespace-nowrap text-right">{{getAmount() | currency : 'R$ '}}</p>
+        <p class="text-xsm text-color-secondary text-right">{{transaction().date | date : 'dd MMMM'}}</p>
+    </div>
+    
+</div>

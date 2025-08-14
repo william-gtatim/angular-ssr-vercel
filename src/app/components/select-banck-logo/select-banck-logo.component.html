@@ -1,0 +1,17 @@
+<p-scrollpanel [style]="{ width: '99%', height: '61px' }" >
+    <div class="flex gap-4 m-1 me-10">
+        @for (item of service.bankLogos(); track item.id) {
+        <button (click)="selectedChange.emit(item.id)" class="h-10 w-10 shrink-0 flex items-center justify-center rounded-full 
+                transition-all duration-200 
+                ring-2" [ngClass]="{
+            'ring-slate-300 ring-offset-2 ring-offset-white': selected() === item.id,
+            'ring-transparent': selected() !== item.id
+          }">
+            <img [src]="'/assets/banks/' + item.url + '.svg'" class="h-10 w-10" />
+        </button>
+
+        @if($last){<div class="w-10 h-10 text-white pe-3"></div>}
+        }
+    </div>
+</p-scrollpanel>
+  

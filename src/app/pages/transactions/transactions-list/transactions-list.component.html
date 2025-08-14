@@ -1,0 +1,31 @@
+<section>
+    <app-select-date [selected]="service.rangeDate()" (selectedChange)="service.rangeDate.set($event)" (selectPersonalized)="service.filtersVisible.set(true)"/>
+    @if(transactionService.loading()){
+        <div class="flex justify-center mt-5">
+            <app-loading-spinner [loading]="transactionService.loading()" />
+        </div>
+    }@else if(transactionService.transactions().length === 0){
+        <div class="flex justify-center flex-col items-center">
+            <app-ilustration-receipt class="max-w-[250px] md:max-w-[300px] h-auto mt-10 mb-5" />
+            <p class="text-lg font-medium text-center">Você ainda não adicionou nenhuma transação</p>
+        </div>
+    }@else if(service.orderedTransactions().length === 0){
+        <div class="flex justify-center flex-col items-center">
+            <app-ilustration-not-found  class="max-w-[300px] md:max-w-[400px] h-auto mt-10 mb-5" />
+            <p class="text-lg font-medium text-center">Nenhuma transação encontrada</p>
+        </div>
+    }@else {
+        <app-card  class="flex flex-col gap-7">
+            @for (item of service.orderedTransactions(); track item.id) {
+            <div>
+                <!-- <p-checkBox [binary]="true" (onChange)="onSelectTransaction(item, $event.checked)"
+                    [ngModel]="isTransactionSelected(item.id)" /> -->
+                <div class="w-full" (click)="onEditTransaction(item.id)">
+                    <app-transaction-item [transaction]="item" />
+                </div>
+            </div>
+            }
+        </app-card>
+    }
+    
+</section>

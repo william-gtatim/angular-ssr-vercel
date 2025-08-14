@@ -1,0 +1,11 @@
+<app-dialog [visible]="visible()" header="Excluir" (visibleChange)="visibleChange.emit(false)" size="small">
+    <p class="text-color-secondary mb-7">Tem certeza que deseja excluir o usuário <span
+            class="font-semibold">{{member()?.name}}</span>? Essa ação é irreversível.</p>
+
+    <div class="flex gap-4 justify-end">
+        <p-button label="Cancelar" (click)="visibleChange.emit(false)" variant="text"  severity="secondary"/>
+
+        <p-button label="Excluir" icon="pi pi-trash"severity="danger" variant="outlined"
+            [loading]="deleting()" (click)="onDelete()" />
+    </div>
+</app-dialog>

@@ -1,0 +1,44 @@
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 0px 15px;
+    position: fixed;
+    top: 0;
+    background-color: #FFF;
+    z-index: 1000;
+    height: 60px;
+
+}
+
+h2 {
+    margin: 0px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.header-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+button {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+.lucide {
+    color: var(--p-button-text-secondary-color);
+}

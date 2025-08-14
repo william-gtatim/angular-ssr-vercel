@@ -1,0 +1,9 @@
+<app-dialog header="Ajustar saldo" [(visible)]="service.visible">
+<div class="mb-5">
+    <label>Qual deve ser o novo saldo da conta?</label>
+    <app-input-currency [(value)]="service.ammount" />
+</div>
+<div class="flex justify-end">
+    <p-button label="Ajustar" (click)="service.onSave()" [disabled]="service.ammount() == null" [loading]="service.saving()" />
+</div>
+</app-dialog>

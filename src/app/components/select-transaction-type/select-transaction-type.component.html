@@ -1,0 +1,7 @@
+<div>
+    @if(showLabel()){
+        <label>Tipo de transação</label>
+    }
+    <p-selectbutton [options]="transactionTypes()" [ngModel]="selectedType()" (ngModelChange)="selectedTypeChange.emit($event)"  optionLabel="label"
+        optionValue="value" aria-labelledby="basic" [class]="class()" />
+</div>

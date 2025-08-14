@@ -1,0 +1,27 @@
+<app-page-template pageTitle="Início" [headerFixed]="true">
+    <div header-right>
+        <app-user-avatar/>
+    </div>
+    <app-questions-invitation />
+    <div class="flex flex-col gap-5">
+        
+        <app-expense-income-card [balance]="service.balance()" [expense]="service.expense()"
+            [income]="service.income()" />
+        
+
+        <app-month-planning />
+        <app-last-transactions />
+
+
+
+        <app-account-balance />
+
+        <div></div>
+
+    </div>
+</app-page-template>
+
+
+
+<app-transaction-add-button />
+<app-transaction-form />

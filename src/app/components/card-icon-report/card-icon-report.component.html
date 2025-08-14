@@ -1,0 +1,15 @@
+<app-card padding="small">
+    <div class="card">
+        <div class="icon" [ngStyle]="{'backgroundColor': backgroundColor()}">
+            <ng-content></ng-content>
+        </div>
+        <div class="content">
+            <h3 class="money-text">{{amount() | currency : 'R$' }}</h3>
+            <p>{{title()}}
+                @if(explanation()){
+                <app-info [text]="explanation()!" />   }
+            </p>
+           
+        </div>
+    </div>
+</app-card>

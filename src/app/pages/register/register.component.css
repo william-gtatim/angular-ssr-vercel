@@ -1,0 +1,9 @@
+main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--p-surface-100);
+
+}

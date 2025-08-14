@@ -1,0 +1,42 @@
+<p-stepper [value]="1">
+    <!-- Passo 1 -->
+    <p-step-item [value]="1">
+        <p-step>Registre seus gastos</p-step>
+        <p-step-panel>
+            <ng-template #content let-activateCallback="activateCallback">
+                <div class="flex flex-col gap-4">
+                    <p>Ao longo do mês, registre todos os seus ganhos e gastos, categorizando cada item com o máximo de clareza possível.
+                    </p>                    
+                    
+                    <p>Quanto mais específicas forem suas categorias, mais fácil será identificar padrões, repensar hábitos e tomar decisões
+                    alinhadas com seus objetivos. Por exemplo, em vez de usar apenas "Alimentação", você pode dividir seus gastos com comida
+                    em categorias como Supermercado, Almoço do trabalho, Confraternização com amigos, Lanche para não cozinhar, ou qualquer
+                    outra expressão que faça sentido e esteja associada a um padrão de comportamento que possui um gasto significativo.</p>
+                    
+                    
+                    <p>Registrar com detalhes é o primeiro passo para poder saber onde seu dinheiro está indo e em seguida revisar e planejar.
+                    </p>
+                </div>
+            </ng-template>
+        </p-step-panel>
+    </p-step-item>
+
+    <!-- Passo 2 -->
+    <p-step-item [value]="2">
+        <p-step>Revise e planeje</p-step>
+        <p-step-panel>
+            <ng-template #content let-activateCallback="activateCallback">
+                <div class="flex flex-col gap-4">
+                    <p>Ao final do mês, revise quanto você gastou em cada categoria e reflita: valeu a pena? Esse gasto está alinhado com o que
+                    você valoriza? Deseja manter, reduzir ou aumentar esse nível de despesa?
+                    </p>
+
+                    <p>Ao repetir esse processo todos os meses, seus gastos começarão a refletir com mais clareza seus valores, seus objetivos
+                    de vida e a se adequar à sua renda.
+                    </p>
+                </div>
+            </ng-template>
+        </p-step-panel>
+    </p-step-item>
+</p-stepper>
+  

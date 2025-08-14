@@ -1,5 +1,5 @@
 {
-  "name": "angular-ssr-vercel",
+  "name": "lumia",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,40 +7,58 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-ssr-vercel": "node dist/angular-ssr-vercel/server/server.mjs",
-    "build:ssr": "ng build && ng run angular-ssr-vercel:server"
- 
+    "serve:ssr:lumia": "node dist/lumia/server/server.mjs"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^18.2.0",
-    "@angular/common": "^18.2.0",
-    "@angular/compiler": "^18.2.0",
-    "@angular/core": "^18.2.0",
-    "@angular/forms": "^18.2.0",
-    "@angular/platform-browser": "^18.2.0",
-    "@angular/platform-browser-dynamic": "^18.2.0",
-    "@angular/platform-server": "^18.2.0",
-    "@angular/router": "^18.2.0",
-    "@angular/ssr": "^18.2.0",
-    "express": "^4.18.2",
+    "@angular/common": "^20.1.0",
+    "@angular/compiler": "^20.1.0",
+    "@angular/core": "^20.1.0",
+    "@angular/forms": "^20.1.0",
+    "@angular/platform-browser": "^20.1.0",
+    "@angular/platform-server": "^20.1.0",
+    "@angular/router": "^20.1.0",
+    "@angular/service-worker": "^20.1.0",
+    "@angular/ssr": "^20.1.5",
+    "@primeng/themes": "^20",
+    "@supabase/supabase-js": "^2.48.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "chart.js": "^4.4.7",
+    "express": "^5.1.0",
+    "fast-xml-parser": "^5.0.6",
+    "ngx-mask": "^19.0.7",
+    "ofx-js": "^0.2.0",
+    "openai": "^4.86.2",
+    "postcss": "^8.5.6",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.0.1",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.14.10"
+    "tailwindcss": "^4.1.11",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.0",
-    "@angular/cli": "^18.2.0",
-    "@angular/compiler-cli": "^18.2.0",
-    "@types/express": "^4.17.17",
+    "@angular/build": "^20.1.5",
+    "@angular/cli": "^20.1.5",
+    "@angular/compiler-cli": "^20.1.0",
+    "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^18.18.0",
-    "jasmine-core": "~5.2.0",
+    "@types/node": "^20.17.19",
+    "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.5.2"
+    "typescript": "~5.8.2"
   }
 }

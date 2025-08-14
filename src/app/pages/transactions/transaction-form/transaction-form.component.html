@@ -1,0 +1,95 @@
+<p-dialog  styleClass="full-screen-dialog"
+    [header]="id() != null ? 'Editar transação': 'Adicionar transação'" [(visible)]="transactionAddService.visible"
+    appendTo="body" [modal]="true" appendTo="body" [breakpoints]="{ '1199px': '500px', '575px': '100vw' }"
+    [style]="{ width: '500px' }" [focusOnShow]="false" [dismissableMask]="true">
+
+    <div class="flex justify-center">
+        <app-select-transaction-type [(selectedType)]="type" (selectedTypeChange)="onChangetype()" [withTransfer]="true"
+            class="mb-3" />
+    </div>
+
+
+    <div class="form">
+
+        <div>
+            <label for="value">Valor</label>
+            <app-input-currency [(value)]="amount" class="w-full" />
+        </div>
+
+        @if(type() != 'transfer'){
+        <div>
+            <label>Categoria</label>
+            <app-select-category [(select)]="category" [transactionType]="type()"/>
+        </div>
+        }
+        <div>
+            <label for="description">Descrição</label>
+            <p-iconfield>
+                <input id="description" pInputText class="w-full" placeholder="Descrição da transação"
+                    [(ngModel)]="title" />
+                <p-inputicon styleClass="pi pi-pencil" />
+            </p-iconfield>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+            <div>
+                <label>Responsável</label>
+                <p-select [(ngModel)]="spender" [options]="authService.familyMembers()" optionLabel="name"
+                    optionValue="id" class="w-full">
+                    <ng-template let-member #item>
+                        <div class="flex items-center gap-2">
+                            <div>{{ member.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template #dropdownicon>
+                        <i class="pi pi-user"></i>
+                    </ng-template>
+                </p-select>
+            </div>
+
+            <div>
+                <app-select-account [label]="true" [labelText]="type() == 'transfer' ? 'Conta de origem': 'Conta' "
+                    [options]="accountService.accounts()" [(selected)]="account" />
+            </div>
+        </div>
+
+
+
+        @if(type() == 'transfer'){
+        <div>
+            <app-select-account labelText="Conta de destino" [label]="true" [options]="accountTransferOptions()"
+                [(selected)]="account_transafer" />
+
+        </div>
+        }
+
+        <div class="date-picker">
+            <label for="date">Data</label>
+            <p-date-picker [touchUI]="isSmallScreen()" appendTo="body" dateFormat="dd/mm/yy" id="date"
+                [(ngModel)]="date" [iconDisplay]="'input'" styleClass="w-full" panelStyleClass="date-picker-responsive"
+                [showIcon]="true" [readonlyInput]="true" [panelStyle]="{'position': 'fixed'}" />
+        </div>
+
+
+        @if(type() !== 'transfer'){
+        <div class="flex gap-2">
+            <p-checkbox [binary]="true" [(ngModel)]="work" />
+            <p class="font-medium">{{titleWork()}}</p>
+        </div>
+        }
+
+
+        <div [ngClass]="id() ? 'grid md:grid-cols-2 gap-4 mt-4': 'mt-4'">
+
+            @if(id()){
+            <p-button styleClass="button-delete" [loading]="deleting()" label="deletar" icon="pi pi-trash"
+                (click)="onDeleteTransaction()" styleClass="w-full" severity="secondary" />
+            }
+
+            <p-button (click)="onSubmit()" icon="pi pi-save" [loading]="saving()" [disabled]="!isValidForm()"
+                [label]="id() ? 'Atualizar' : 'Salvar' " styleClass="w-full flex-shrink-0" />
+        </div>
+
+    </div>
+
+
+</p-dialog>

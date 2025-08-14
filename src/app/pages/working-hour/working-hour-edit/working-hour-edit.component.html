@@ -1,0 +1,18 @@
+<app-dialog [visible]="visible()" (visibleChange)="visibleChange.emit($event)" header="Horas de trabalho" size="small">
+    <div class="flex flex-col gap-4">
+        <div>
+            <label>Usuário</label>
+            <app-select-spender [(selectedSpenderId)]="user" [dirt]="userAlreadyDefined() && workingTimeItemToEdit() == null" [disabled]="workingTimeItemToEdit() !== null" />
+           <app-forms-error-message message="Você já definiu o tempo de trabalho desse usuário. Selecione outro." [hasError]="userAlreadyDefined() && workingTimeItemToEdit() == null" />
+        </div>
+        <div>
+            <label>Horas de trabalho por mês</label>
+            <p-input-number [(ngModel)]="monthlyWork" class="w-full" [class]="monthlyWork() == 0 ? 'ng-dirt ng-invalid': ''"  />
+            <app-forms-error-message message="Insira um valor maior que 0." [hasError]="monthlyWork() == 0" />
+        </div>
+        <div class="flex justify-end">
+            <p-button [label]="workingTimeItemToEdit() ? 'Atualizar': 'Salvar'" icon="pi pi-save" (click)="onSaveData()" [loading]="saving()"
+                [disabled]="buttonDisabled()" />
+        </div>
+    </div>
+</app-dialog>

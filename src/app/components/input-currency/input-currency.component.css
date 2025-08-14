@@ -1,0 +1,22 @@
+input {
+    all: unset;
+    font-size: 1rem;
+    color: var(--p-text-color);
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem;
+    border: 1px solid var(--p-surface-300);
+    /* box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05); */
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 100%;
+    transition:  color var(--p-inputtext-transition-duration), border-color var(--p-inputtext-transition-duration), outline-color var(--p-inputtext-transition-duration), box-shadow var(--p-inputtext-transition-duration);
+}
+
+input:hover {
+    border-color: var(--p-inputtext-hover-border-color);
+}
+input:focus {
+    border-color: var(--p-inputtext-focus-border-color);
+    box-shadow: var(--p-inputtext-focus-ring-shadow);
+    outline: var(--p-inputtext-focus-ring-width) var(--p-inputtext-focus-ring-style) var(--p-inputtext-focus-ring-color);
+}

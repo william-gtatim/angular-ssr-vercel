@@ -1,0 +1,23 @@
+<app-dialog [visible]="service.visible()"
+(visibleChange)="service.visible.set(false)" header="Deletar conta" size="small">
+    <section class="flex flex-col gap-4">
+        <p>Você tem certeza que deseja deletar a conta abaixo? </p>
+        <h2 class="flex gap-4 font-semibold items-center">
+            <span>
+                {{service.account()?.title}}
+            </span>
+        </h2>
+    
+        @if(!canDelete()){
+        <div class="message">
+            <p>Para ser deletada, uma conta não deve ter transações ou receber transferências. Remova as transações ou
+                transferências dessa conta antes de excluí-la.</p>
+        </div>
+        }
+    
+        <div class="flex justify-end">
+            <p-button icon="pi pi-trash" [loading]="service.loading()" variant="outlined" (click)="service.onDelete()" severity="danger"
+                label="Deletar conta" [disabled]="!canDelete()" />
+        </div>
+    </section>
+</app-dialog>

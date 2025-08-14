@@ -1,0 +1,24 @@
+<div class="grid gap-5 md:grid-cols-2 md:gap-10 items-center">
+    <div class="flex justify-center md:justify-start">
+        <p-chart type="doughnut" [data]="chartData()" [options]="options()" class="w-[250px]" />
+    </div>
+
+    <div class="flex flex-col gap-3">
+        @for (item of data(); track $index) {
+        <div class="flex justify-between items-center pb-2" [ngClass]="$last ? '': 'border-b border-surface'">
+            <div class="flex gap-2 items-center">
+                <app-icon-item [color_id]="item.color" [icon_id]="item.icon" />
+                <p>{{item.name}}</p>
+            </div>
+            <div>
+                <p class="text-right font-medium">{{item.ammount | currency : 'R$ '}}</p>
+                <p class="text-sm text-color-secondary text-right">{{getPercentage(item.ammount)}}%</p>
+            </div>
+        </div>
+        }
+        <!-- <div class="flex items-end flex-col">
+            <p class="text-color-secondary text-sm">Total</p>
+            <p class="font-semibold text-lg text-right">{{total() | currency : 'BRL'}}</p>
+        </div> -->
+    </div>
+</div>

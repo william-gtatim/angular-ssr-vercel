@@ -1,0 +1,13 @@
+<div>
+    <input #fileInputRef type="file" [id]="'fileInput'+fileFormat()" class="hidden" [attr.key]="fileFormat()"
+        (change)="onFileSelect($event)" [accept]="fileFormat()" />
+
+    <label [for]="'fileInput'+fileFormat()" class="cursor-pointer">
+        <div class="flex gap-5 items-center flex-col">
+            <i class="pi pi-upload text-color-secondary"></i>
+            <span class="text-sm text-color-secondary ">{{label()}}</span>
+        </div>
+    </label>
+    <app-loading-spinner [loading]="loading()" />
+
+</div>

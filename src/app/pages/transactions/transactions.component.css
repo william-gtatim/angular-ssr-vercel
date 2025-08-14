@@ -1,0 +1,22 @@
+
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search {
+    padding: 10px 20px 10px 20px;
+}
+
+.header-title {
+    font-weight: 700;
+    color: var(--p-text-color);
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

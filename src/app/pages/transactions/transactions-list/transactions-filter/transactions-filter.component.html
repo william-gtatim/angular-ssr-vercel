@@ -1,0 +1,55 @@
+<p-button pTooltip="Filtrar dados" tooltipPosition="bottom"  (click)="service.filtersVisible.set(true)" icon="pi pi-sliders-h" text severity="secondary" rounded />
+<p-dialog [showHeader]="false" [focusOnShow]="false"  [modal]="true" [dismissableMask]="true" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }" [(visible)]="service.filtersVisible" >
+   <div class="dialog-body">
+    <div class="header">
+        <p class="title">Filtrar transações</p>
+        <p-button label="Limpar" (click)="onClearFilters()"  text  class="margin"/>
+    </div>
+    <!-- Filtro de categorias: selecionar as categorias desejadas -->
+
+    <div class="flex flex-col gap-5">
+        <app-select-category [(select)]="service.category" placeholder="Por categoria"/>
+        
+        <!-- Filtro de data: selecionar intervalos -->
+        
+        <p-datepicker [readonlyInput]="true" dateFormat="dd/mm/yy" [(ngModel)]="service.rangeDate" selectionMode="range"
+            placeholder="Por intervalo de tempo" styleClass="w-full" showIcon iconDisplay="input" appendTo="body" />
+        
+        <!-- Filtro de valores: selecionar um intervalo de valores -->
+        
+        <app-select-account [options]="accountService.accounts()" [(selected)]="service.account" placeholder="Por conta" />
+
+        <p-select [options]="transactionTypes" [(ngModel)]="service.type" optionLabel="label" placeholder="Por tipo de transação" optionValue="value"
+            class="w-full">
+        <ng-template #dropdownicon>
+            <i class="pi pi-arrow-right-arrow-left"></i>
+        </ng-template>
+        </p-select>
+
+        <app-select-spender placeholder="Por usuário" [(selectedSpenderId)]="service.user" />
+
+        
+        
+        <div class="flex flex-col gap-5">
+            <p-iconfield>
+                <p-input-number [(ngModel)]="service.minAmount" placeholder="Por valor mínimo" class="w-full" />
+                <p-inputicon styleClass="pi pi-dollar" />
+            </p-iconfield>
+            <p-iconfield>
+                <p-input-number [(ngModel)]="service.maxAmount" placeholder="Por valor máximo" class="w-full" />
+                <p-inputicon styleClass="pi pi-dollar" />
+            </p-iconfield>
+        
+        </div>
+
+
+        <div class="flex gap-2">
+            <p-checkbox [(ngModel)]="service.workRelated" [binary]="true" />
+
+            <p class="font-medium">Relacionado com o trabalho</p>
+        </div>
+    </div>
+    
+    <p-button label="Ver resultado" styleClass="mt-4 w-full" (click)="onCompleteSelectFilters()" />
+   </div>
+</p-dialog>

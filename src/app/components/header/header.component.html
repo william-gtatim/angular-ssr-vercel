@@ -1,0 +1,11 @@
+<header class="shadow-1">
+    <div class="flex gap-2 align-items-center">
+        <img src="/assets/logo.svg" id="logo-image">
+        <h2 class="m-0">Lumia</h2>
+    </div>
+    <div>
+        <p-avatar icon="pi pi-user"  styleClass="cursor-pointer" size="normal"
+            shape="circle" (click)="menu.toggle($event)" />
+            <p-menu appendTo="body" #menu [model]="menuItems" [popup]="true" />
+    </div>
+</header>

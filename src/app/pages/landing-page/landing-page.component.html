@@ -1,0 +1,221 @@
+<header class="surface-50">
+    <div class="max-w-[1200px] mx-auto p-4 md:px-12">
+        <div class="flex items-center gap-3">
+            <app-logo class="w-10 h-auto" />
+            <h1 class="font-semibold text-xl">Lúmia Finanças</h1>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="surface-50">
+        <div class="max-w-[1200px] mx-auto p-4 md:px-12">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12 py-12">
+                <!-- Texto -->
+                <div class="flex-1 max-w-xl text-center lg:text-left">
+
+                    <h1 class="text-4xl lg:text-5xl font-bold  leading-tight mb-6">
+                        Clareza para as suas escolhas financeiras
+                    </h1>
+
+                    <svg width="220" height="20" viewBox="0 0 487 34" fill="none" class="mx-auto lg:mx-0">
+                        <path d="M4 30C73.6307 10.3798 266.914 -17.0885 483 30" stroke="#3B82F6" stroke-width="8"
+                            stroke-linecap="round" />
+                    </svg>
+
+                    <p class=" text-lg mt-8 mb-10">
+                        Nosso App te ajuda a entender seus gastos, reavaliar suas decisões, planejar seus sonhos e
+                        alcançar seu bem-estar
+                        financeiro
+                    </p>
+
+                    <div class="flex flex-row gap-4 justify-center lg:justify-start">
+                        <p-button label="Criar conta" (click)="router.navigate(['/register'])" size="large"
+                            styleClass="!px-10" />
+                        <p-button label="Login" severity="secondary" variant="outlined"
+                            (click)="router.navigate(['/login'])"
+                            styleClass="!bg-white !rounded-md !px-10 !text-slate-700" size="large" />
+                    </div>
+                </div>
+
+                <!-- Imagem principal do Hero -->
+                <div class="flex-1 max-w-lg">
+                    <img src="assets/images/hero.svg" alt="Pessoa usando app financeiro" class="w-full h-auto" />
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="pt-20">
+        <div class="max-w-[1200px] mx-auto p-4 md:px-12">
+            <div class="flex flex-col gap-6 text-center">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="font-bold text-3xl leading-tight">
+                        <span class="">O que é o Lúmia?</span>
+                    </div>
+                    <div class="max-w-3xl text-base text-gray-700 leading-relaxed">
+                        <p>
+                            Lúmia é um aplicativo de finanças pessoais criado para ajudar você a entender para onde seu
+                            dinheiro está indo, tomar decisões mais conscientes e alcançar seus objetivos financeiros.
+                        </p>
+                        <p class="mt-4">
+                            Ele permite que você registre seus gastos e rendimentos de forma detalhada, visualize
+                            relatórios
+                            claros e defina metas para o futuro — tudo com simplicidade e foco no bem-estar financeiro.
+                        </p>
+                        <p class="mt-4">
+                            Ideal para quem quer retomar o controle do orçamento pessoal ou familiar, o Lúmia oferece
+                            uma
+                            forma prática de organizar suas finanças, rever hábitos e planejar o que realmente importa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="pt-20">
+        <div class="max-w-[1200px] mx-auto p-4 md:px-12">
+            <div class="flex flex-col gap-6 text-center">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="font-bold text-3xl leading-tight">
+                        <span class="">Nossos recursos</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+
+                    <!-- Criação de categorias -->
+                    <div class="w-full rounded-md p-4">
+                        <span
+                            class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-surface-0 shadow mx-auto">
+                            <i class="pi pi-tag text-2xl lg:text-3xl text-primary-500"></i>
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <div class=" text-xl font-medium leading-tight">Criação de categorias</div>
+                            <p class=" leading-normal">Seus gastos, suas categorias. Crie facilmente
+                                categorias
+                                que reflitam o sentido dos seus gastos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Família -->
+                    <div class="w-full rounded-md p-4">
+                        <span
+                            class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-surface-0 shadow mx-auto">
+                            <i class="pi pi-users text-2xl lg:text-3xl text-primary-500"></i>
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <div class=" text-xl font-medium leading-tight">Família</div>
+                            <p class=" leading-normal">Divide contas e recursos com sua família? Crie
+                                diferentes
+                                usuários e entenda a renda familiar.</p>
+                        </div>
+                    </div>
+
+                    <!-- Gastos com trabalho -->
+                    <div class="w-full rounded-md p-4">
+                        <span
+                            class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-surface-0 shadow mx-auto">
+                            <i class="pi pi-briefcase text-2xl lg:text-3xl text-primary-500"></i>
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <div class=" text-xl font-medium leading-tight">Gastos com trabalho</div>
+                            <p class=" leading-normal">Registre gastos, renda e tempo de trabalho e descubra o
+                                que realmente ganha com seu esforço.</p>
+                        </div>
+                    </div>
+
+                    <!-- Objetivos -->
+                    <div class="w-full rounded-md p-4">
+                        <span
+                            class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-surface-0 shadow mx-auto">
+                            <i class="pi pi-bullseye text-2xl lg:text-3xl text-primary-500"></i>
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <div class=" text-xl font-medium leading-tight">Objetivos</div>
+                            <p class=" leading-normal">Defina objetivos e veja quanto economizar por mês para
+                                alcançá-los. O app avisa se seu orçamento está no caminho certo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contas e cartões -->
+                    <div class="w-full rounded-md p-4">
+                        <span
+                            class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-surface-0 shadow mx-auto">
+                            <i class="pi pi-credit-card text-2xl lg:text-3xl text-primary-500"></i>
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <div class=" text-xl font-medium leading-tight">Contas e cartões</div>
+                            <p class=" leading-normal">Cadastre contas e cartões para ter uma visão geral
+                                completa das suas finanças.</p>
+                        </div>
+                    </div>
+
+                    <!-- Relatórios -->
+                    <div class="w-full rounded-md p-4">
+                        <span
+                            class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-surface-0 shadow mx-auto">
+                            <i class="pi pi-chart-bar text-2xl lg:text-3xl text-primary-500"></i>
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <div class=" text-xl font-medium leading-tight">Relatórios</div>
+                            <p class=" leading-normal">Acompanhe resumos claros e gráficos simples para
+                                entender
+                                seus padrões de consumo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Multiplataforma -->
+                    <div class="w-full rounded-md p-4 hidden ">
+                        <span
+                            class="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-surface-0 shadow mx-auto">
+                            <i class="pi pi-tablet text-2xl lg:text-3xl text-primary-500"></i>
+                        </span>
+                        <div class="flex flex-col gap-1">
+                            <div class=" text-xl font-medium leading-tight">Multiplataforma</div>
+                            <p class=" leading-normal">Acesse o Lumia de onde quiser — no computador ou no
+                                celular — sempre que precisar.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-20">
+        <div class="max-w-[900px] mx-auto p-4 md:px-12">
+            <div class="flex flex-col gap-6 text-center mb-8">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="font-bold text-3xl leading-tight">
+                        <span class="">Clareza financeira em 2 passos</span>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+    </section>
+
+
+</main>
+<footer class="bg-slate-800 text-white py-4 mt-20">
+    <div class="max-w-[1200px] mx-auto px-4 flex flex-row justify-between items-center gap-4 text-sm">
+        <div class="font-semibold text-lg">
+            Lúmia Finanças
+        </div>
+        <div class="flex gap-2">
+            <a class="hover:underline" [routerLink]="'/privacy-policy'">
+                Política de Privacidade
+            </a>
+            <a class="hover:underline" [routerLink]="'/terms'">
+                Termos de uso
+            </a>
+        </div>
+    </div>
+</footer>

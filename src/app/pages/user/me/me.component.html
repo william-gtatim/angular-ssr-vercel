@@ -1,0 +1,22 @@
+<div class="pt-5 flex flex-col gap-5">
+    <img [src]="avatar()" alt="imagem de perfil" class="user-image">
+    <div class="flex flex-col gap-3">
+        <div>
+            <label for="firs-name">Nome</label>
+            <input pInputText type="text" id="firs-name" [(ngModel)]="userName" />
+        </div>
+        <p-button label="Atualizar" (click)="onUpdateUserInfo()" [loading]="savingName()"/>
+    </div>
+
+    <div>
+        <label>Email</label>
+        <p class="font-semibold">{{this.authService.userEmail()}}</p>
+        <small>No momento não é possível mudar o endereço de email de sua conta.</small>
+    </div>
+
+    <hr>
+
+    <p-button label="Deletar Conta" severity="danger" variant="outlined" icon="pi pi-trash" />
+    
+
+</div>

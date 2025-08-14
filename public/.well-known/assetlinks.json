@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.lumiafinancas.twa",
+        "sha256_cert_fingerprints": ["6D:43:82:53:E6:7C:5C:79:56:AE:B5:FB:6A:5A:1A:E5:39:FA:FB:3E:A3:09:C3:DC:07:ED:62:53:E0:9E:D6:09"]
+      }
+    }]

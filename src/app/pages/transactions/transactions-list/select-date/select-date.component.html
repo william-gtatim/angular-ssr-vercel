@@ -1,0 +1,10 @@
+<p-scrollpanel [style]="{ width: '100%', height: '50px' }">
+    <div class="flex gap-2">
+        @for (item of options(); track item.value) {
+        <button (click)="onSelect(item.value)" class="bg-white py-2 px-3  shrink-0 rounded-md font-medium cursor-pointer" [ngClass]="selectedDate() == item.value ? 'primary text-white' : ''">
+            {{item.label}}
+        </button>
+        }
+        <div class="w-3 pe-5"></div>
+    </div>
+</p-scrollpanel>

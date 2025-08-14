@@ -1,0 +1,36 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <div class="header-title">
+            <app-header-back title="Minhas categorias" />
+        </div>
+    </div>
+    <div header-right>
+        <p-button label="Adicionar" [text]="true" (click)="onAddNew()" />
+    </div>
+    <div class="page-content">
+        <div class="tabs">
+            <app-select-transaction-type [selectedType]="selectedTransactionType()"
+                (selectedTypeChange)="selectedTransactionType.set($event)" />
+        </div>
+        <ul>
+            @for (item of selectedCategories(); track item.id) {
+            <li>
+                <app-category-item [category]="item" (click)="onEdit(item)" (edit)="onEdit($event)"
+                    (delete)="visibleDelete.set(true); deletingItem.set(item.id)" />
+            </li>
+            }@empty {
+            <li>
+                @if(selectedTransactionType() == 'expense') {
+                <p class="text-center">Nenhuma categoria para despesas cadastrada</p>
+                }@else {
+                <p class="text-center">Nenhuma categoria para receitas cadastrada</p>
+                }
+
+            </li>
+            }
+        </ul>
+        
+        <app-categories-add [category]="editingItem()" />
+        <app-category-delete [(visible)]="visibleDelete" [categoryId]="deletingItem()"  />
+    </div>
+</app-page-template>

@@ -1,0 +1,40 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <div class="font-semibold">
+            <app-header-back title="Planejamento por categoria" path="/home" />
+        </div>
+    </div>
+    <div header-right>
+        
+    </div>
+    <div class="flex flex-col gap-8">
+        <div class="flex justify-end">
+            <p-datepicker [(ngModel)]="selectedDate" view="month" dateFormat="mm/yy" [readonlyInput]="true" class="w-15rem"
+                [iconDisplay]="'input'" [showIcon]="true" />
+        </div>
+
+        @if(service.budget()){
+            <app-month-planning [showButton]="false" />
+
+            @if(service.monthCategoryAllocations()){
+            <div class="flex flex-col gap-4">
+                @for (item of service.monthCategoryAllocations(); track $index) {
+                <app-category-expense-item [item]="item" [categorySpending]="categorySpending().get(item.category) || 0" />
+                }
+            </div>   }
+
+            
+        }@else {
+            <div class="flex justify-center items-center flex-col gap-5">
+                <app-ilustration-planing class="max-w-[250px] md:max-w-[400px] h-auto" />
+                <p class="text-lg text-center">Você não tem nenhum planejamento de gastos definido para esse mês</p>
+                <p-button label="Planejar" (click)="router.navigate(['/budget'])" />
+            </div>
+        }
+
+       
+
+
+        
+    </div>
+</app-page-template>

@@ -1,0 +1,23 @@
+<app-page-template [headerFixed]="true">
+    <div header-left>
+        <h1 class="text-lg font-medium">Todos os recursos</h1>
+    </div>
+    <div header-right>
+
+    </div>
+    <div class="grid grid-cols-2 items-stretch md:grid-cols-3 gap-4">
+        <app-resource-item title="Meu Perfil" icon="pi-user" description="Gerencie seu perfil" route="user" />
+        <app-resource-item title="Família" icon="pi-users" description="Adicione ou remova membros na sua família"
+            route="/family" />
+        <app-resource-item title="Contas e cartões" icon="pi-wallet" description="Gerencie suas contas e cartões"
+            route="/accounts" />
+        <app-resource-item title="Hora de trabalho" icon="pi-calendar-clock"
+            description="Calcule quanto você realmente ganha por hora trabalhada" route="/working-hour" />
+        <app-resource-item title="Categorias" icon="pi-tag" description="Gerencie suas categorias"
+            route="/categories" />
+        <app-resource-item title="Objetivos" icon="pi-map-marker" description="Defina seus objetos para acompanhar seu progresso" route="/goals" />
+        <app-resource-item title="Contato" icon="pi-envelope"
+            description="Entre em contato conosco para tirar suas dúvidas" route="/contact" />
+        <app-resource-item title="Importar" icon="pi-upload" description="Importe transações a partir de arquivos" route="/import" />
+    </div>
+</app-page-template>

@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-1 h-full surface-0 p-5 rounded-xl hover:shadow-md cursor-pointer transition-shadow duration-300" (click)="router.navigate([route()])">
+    <i [ngClass]="classIcon() " class="hover:text-primary"></i>
+    <h2 class="font-medium text-lg">{{title()}}</h2>
+    <p class="text-color-secondary text-sm">{{description()}}</p>
+</div>

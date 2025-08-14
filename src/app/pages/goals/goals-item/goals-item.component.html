@@ -1,0 +1,19 @@
+<div class="bg-white cursor-pointer shadow rounded-2xl hover:shadow-md" (click)="router.navigate(['/goals', goal().id])">
+    <img [src]="'/assets/images/goals/' + service.getImage(goal().image)" class="w-full h-[120px] object-cover rounded-t-2xl">
+    <div class="p-5">
+        <div class="flex justify-between items-center mb-1">
+            <h2 class="font-semibold">{{goal().name}}</h2>
+            <p-button (click)="$event.stopPropagation(); menu.toggle($event)" icon="pi pi-ellipsis-v " [text]="true"
+                [rounded]="true" severity="secondary" />
+        </div>
+        
+        <p-progressbar [value]="service.getSavedPercentage(goal().id)" [style]="{'height': '15px'}" />
+        <p class="text-sm text-color-secondary mt-1">
+            {{service.calculateSavedAmount(goal().id) | currency : 'R$'}} de {{goal().cost | currency : 'R$'}}</p>
+        <div class="flex gap-2 mt-5">
+            <div><i class="pi pi-calendar text-color-secondary"></i></div>
+            <p>{{goal().term | date : 'dd MMM YYYY'}}</p>
+            </div>
+    </div>
+</div>
+<p-menu #menu [model]="items()" [popup]="true" appendTo="body" />

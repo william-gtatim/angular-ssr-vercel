@@ -1,0 +1,31 @@
+<app-card title="Criar objetivos">
+    <div class="grid gap-5 grid-cols-1 md:grid-cols-2 items-center">
+        <div>
+            <p class="mb-4">
+                Definir objetivos financeiros é o primeiro passo para transformar seus sonhos em realidade.
+                Nosso app te ajuda a planejar e acompanhar cada etapa dessa jornada.
+            </p>
+
+            <div class="mb-6 space-y-3">
+                <h2 class="font-medium">O que você ganha ao criar objetivos?</h2>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Visualize claramente o valor total necessário para seu objetivo</li>
+                    <li>Receba orientação sobre quanto economizar por mês</li>
+                    <li>Defina um prazo realista (mês e ano para conclusão)</li>
+                    <li>Acompanhe seu progresso (quanto já foi guardado)</li>
+                    <li>Monitore no planejamento mensal se está no caminho certo</li>
+                </ul>
+
+                <p class="pt-2">
+                    Tudo organizado em um só lugar para você tomar decisões financeiras mais inteligentes!
+                </p>
+            </div>
+
+            <p-button label="Adicionar objetivo" class="mt-4" (click)="addGoal.emit(true)" />
+        </div>
+
+        <div class="flex justify-center order-first md:order-last">
+            <app-ilustration-goals class="max-w-[250px] md:max-w-[400px] h-auto" />
+        </div>
+    </div>
+</app-card>

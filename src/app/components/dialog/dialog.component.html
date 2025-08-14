@@ -1,0 +1,5 @@
+<p-dialog appendTo="body" [header]="header()" [modal]="true" [visible]="visible()"
+    (visibleChange)="visibleChange.emit(false)"  [style]="dialogStyle()" [blockScroll]="true" [focusOnShow]="false"
+    [breakpoints]="dialogBreakpoints()" [styleClass]="fullScreen() ? 'full-screen-dialog': ''" [dismissableMask]="true">
+    <ng-content></ng-content>
+</p-dialog>

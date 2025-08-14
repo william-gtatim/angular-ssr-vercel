@@ -1,0 +1,25 @@
+
+<div [class]="showSidebar() ? 'main-padding max-w-full' : '' ">
+    @if(showHeader()){
+        <header [ngClass]="{
+                    'fixed': headerFixed(),
+                    'header-with-sidebar': headerFixed() && showSidebar()
+                  }">
+            <div class="w-full flex flex-wrap justify-between items-center">
+                <ng-content select="[header-left]">
+                    @if(pageTitle()){
+                    <h1 class="font-medium text-lg">{{pageTitle()}}</h1>
+                    }
+                </ng-content>
+                <ng-content select="[header-right]"></ng-content>
+            </div>
+        </header>
+    }
+    <main [ngClass]="headerFixed() ? 'main-fixed' : ''">
+        <section class="pb-5">
+            <ng-content></ng-content>
+        </section>
+    </main>
+    @if(showSidebar()){
+    <app-sidebar />   }
+</div>

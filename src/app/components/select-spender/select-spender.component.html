@@ -1,0 +1,14 @@
+@if(showLabel()){
+    <label>Responsável</label>
+}
+<p-select appendTo="body" [ngModel]="selectedSpenderId()" (ngModelChange)="selectedSpenderIdChange.emit($event)" [options]="authService.familyMembers()" optionLabel="name" optionValue="id"
+    class="w-full" [class]="dirt() ? 'ng-dirty ng-invalid':''" [disabled]="disabled()" [placeholder]="placeholder()">
+    <ng-template let-member #item>
+        <div class="flex items-center gap-2">
+            <div>{{ member.name }}</div>
+        </div>
+    </ng-template>
+    <ng-template #dropdownicon>
+        <i class="pi pi-user"></i>
+    </ng-template>
+</p-select>

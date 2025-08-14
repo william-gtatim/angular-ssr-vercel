@@ -1,0 +1,12 @@
+<section>
+    @for (item of buttons(); track $index) {
+    <button [ngClass]="{
+        'ml-3': $first,
+        'mr-3' : $last
+    }" [routerLink]="item.route">
+        <div class="icon"><i [classList]="item.icon"></i></div>
+        <span class="title">{{item.title}}</span>
+    </button>
+    }
+
+</section>

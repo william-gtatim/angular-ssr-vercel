@@ -1,0 +1,16 @@
+<a class="flex flex-col gap-1 items-center py-3 " [routerLink]="route()" routerLinkActive="active" 
+    ariaCurrentWhenActive="page" >
+    @if(materialIcon()){
+        <span class="material-symbols-rounded text-color" [ngClass]="isActive() ? 'filled ' : 'outlined'">
+            {{materialIcon()}}
+        </span>
+    }@else {
+        <i class="group-hover:text-[color:var(--p-primary-600)] transition-colors duration-200"
+            [ngClass]="activeClass().icon"></i>
+    }
+    
+
+    <span class="text-xsm font-medium transition-colors duration-200 tracking-tight" [ngClass]="activeClass().title">
+        {{ title() }}
+    </span>
+</a>

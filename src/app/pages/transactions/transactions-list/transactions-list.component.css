@@ -1,0 +1,23 @@
+ul {
+    all: unset;
+    padding: 0px;
+    margin: 0xp;
+}
+
+li {
+    list-style: none;
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

@@ -1,0 +1,19 @@
+button {
+    all: unset;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--p-primary-700);
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+}
+
+button:active {
+    color: var(--p-primary-800);
+}
+
+button svg {
+    fill: var(--p-text-color);
+}

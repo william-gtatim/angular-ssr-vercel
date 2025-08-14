@@ -1,0 +1,32 @@
+.delete-info {
+    color: var(--p-red-400);
+}
+
+.transaction-toolbar {
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 10px;
+    z-index: 1001;
+    padding: 0px 25px;
+    left: 10px;
+    right: 10px;
+    border-radius: 30px;
+    box-shadow:
+            0px 16px 32px -4px rgba(12, 12, 13, 0.10),
+            0px 4px 4px -4px rgba(12, 12, 13, 0.05);
+
+}
+
+.transaction-toolbar-content {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.transaction-toolbar-content {
+    color: var(--p-text-color);
+}

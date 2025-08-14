@@ -1,0 +1,14 @@
+<label>Cor</label>
+<p-scrollpanel [style]="{ width: '99%', height: '61px' }">
+    <div class="flex gap-3 p-2">
+        @for (item of service.getColors(); track item.id) {
+        <div class="rounded-full h-8 w-8 cursor-pointer transition-all shrink-0" [style.background-color]="item.value"
+            [style.box-shadow]="selected() === item.id 
+                    ? `0 0 0 2px white, 0 0 0 5px ${item.value}`
+                    : 'none'" (click)="selectedChange.emit(item.id)"></div>
+
+        @if($last){<div class="w-10 h-10 text-white pe-3"></div>
+        }
+        }
+    </div>
+</p-scrollpanel>

@@ -1,0 +1,27 @@
+<app-card>
+    <div class="flex gap-5 justify-between mb-2 items-center">
+        <h2 class="font-medium text-lg">Contas</h2>
+        <p [ngClass]="service.accountBalance() < 0 ? 'text-red-500': ''">{{service.accountBalance() | currency : 'BRL'}}</p>
+    </div>
+    <ul class="flex flex-col divide-y  divide-slate-200">
+        @for (item of service.accounts(); track $index) {
+        <li class="flex justify-between items-center py-3 gap-8">
+            <div class="flex gap-3 items-center">
+                <img [src]="service.getBankUrl(item.bank_logo)" class="h-10 w-10" />
+                <h4>{{ item.title }}</h4>
+            </div>
+            
+            <div>
+                <p class="text-right text-sm text-color-secondary">Saldo</p>
+                <p class="whitespace-nowrap text-right" [ngClass]="{
+                                    'text-red-500': (service.accountsBalance().get(item.id) ?? 0) < 0
+                                  }">
+                    {{ service.accountsBalance().get(item.id) ?? 0 | currency : 'BRL' }}
+                </p>
+            </div>
+        </li>
+        }
+    </ul>
+      
+      
+</app-card>

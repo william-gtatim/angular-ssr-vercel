@@ -1,0 +1,21 @@
+.dialog-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.title {
+    color: var(--p-color-text);
+    font-weight: 500;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.margin {
+    margin-right: -10px;
+}

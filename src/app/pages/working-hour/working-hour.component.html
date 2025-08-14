@@ -1,0 +1,61 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <div class="header-title">
+            <app-header-back title="Hora de trabalho" />
+        </div>
+    </div>
+    <div header-right>
+        <p-button label="Adicionar" [text]="true" (click)="visible.set(true); workingTimeItemToEdit.set(null)" />
+    </div>
+    <div class="page-content">
+
+
+
+
+        <div class="flex justify-center">
+            <app-loading-spinner [loading]="service.loadingData()" />
+        </div>
+
+        @if(!service.loadingData() && service.usersWorkingTime().length > 0){
+            <div class="flex flex-col gap-4">
+                @for (item of service.usersWorkingTime(); track item.id) {
+                <app-working-hour-item [workingTime]="item" (onEdit)="this.visible.set(true); workingTimeItemToEdit.set(item)" />     }
+            </div>
+        }
+
+        @if(!service.loadingData() && service.usersWorkingTime().length == 0){
+        <app-card title="Valor real da hora de trabalho">
+
+
+            
+            <div class="flex justify-center flex-col gap-5 items-center md:grid md:grid-cols-2">
+                <app-ilustration-work class="max-w-full md:max-w-[400px] h-auto order-first md:order-last pb-2" />
+
+                <div>
+                    <p class="mb-3">
+                        Embora o valor da sua hora de trabalho seja fixo, o ganho real pode variar conforme os custos que o trabalho exige —
+                        como transporte, alimentação e vestuário.
+                    </p>
+                    <p class="mb-3">
+                        Às vezes, um trabalho com salário mais baixo pode gerar um ganho por hora maior, justamente por envolver menos
+                        despesas.
+                    </p>
+                    <p class="mb-3">
+                        Aqui, você pode informar sua carga horária mensal. Assim, ao registrar uma despesa ou receita como relacionada ao trabalho, o
+                        app calculará quanto você realmente ganha com o seu trabalho.
+                    </p>
+                    <p class="mb-4">
+                        Além disso, ao revisar seus gastos por categoria, você também verá quantas horas de trabalho cada tipo de despesa representa — ajudando a entender melhor o custo real das
+                        suas escolhas.
+                    </p>
+                    <p-button label="Adicionar" (click)="visible.set(true)" />
+                </div>
+
+            </div>
+        </app-card>
+        }
+
+
+    </div>
+</app-page-template>
+<app-working-hour-edit [(visible)]="visible" [workingTimeItemToEdit]="workingTimeItemToEdit()" (updateFinished)="this.visible.set(false)" />

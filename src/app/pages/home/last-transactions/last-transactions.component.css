@@ -1,0 +1,13 @@
+
+.container-header  {
+    all: unset;
+    font-weight: 600;
+    color: inherit;
+}
+
+.header {
+    padding: 0px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+

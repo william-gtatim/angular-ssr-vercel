@@ -1,0 +1,33 @@
+<app-dialog [visible]="service.visible()" (visibleChange)="service.visible.set(false)" size="small" [header]="service.account() ? 'Editar' : 'Adicionar' ">
+    <section>
+        <div>
+            <label>Tipo de conta</label>
+            <p-select-button [options]="options" [(ngModel)]="service.type" />
+        </div>
+        
+        <div>
+            <label>Nome da conta ou cartão</label>
+            <input type="text" pInputText [(ngModel)]="service.title" class="w-full" />
+        </div>
+
+        @if(service.type() == 'credit'){
+        <div>
+            <label>Fechamento da fatura</label>
+            <p-select [options]="days()" appendTo="body" [(ngModel)]="service.closing_day" placeholder="Data de fechamento" class="w-full" />
+        </div>       }
+
+       <div>
+        <label>Ícone</label>
+        <app-select-banck-logo [(selected)]="service.bank_logo" />
+       </div>
+
+   
+        
+
+        <p-button [loading]="service.saving()" (click)="onSave()"[label]="service.account() ? 'Atualizar' : 'Salvar' " styleClass="w-full"
+            [disabled]="service.title() == ''" />
+
+
+      
+    </section>
+</app-dialog>

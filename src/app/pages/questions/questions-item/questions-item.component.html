@@ -1,0 +1,11 @@
+<div>
+    <h2 class="text-lg font-medium mb-4">{{question()?.question}}</h2>
+    <div class="flex  flex-col gap-2">
+        @for (item of options; track $index) {
+        <div class="flex gap-3 items-center">
+            <p-radiobutton [inputId]="item.key" name="item" [value]="item.value" [(ngModel)]="selected" />
+            <label [for]="item.key" class="!m-0">{{ item.name }}</label>
+        </div>
+        }
+    </div>
+</div>

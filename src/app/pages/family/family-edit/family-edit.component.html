@@ -1,0 +1,9 @@
+<app-dialog [visible]="visible()" size="small" (visibleChange)="visibleChange.emit(false)" [header]="member() ? 'Editar': 'Adicionar' ">
+
+    <label>Nome</label>
+    <input pInputText [(ngModel)]="name" class="w-full mb-5" />
+    <div class="flex justify-end">
+        <p-button [label]="member() ? 'Atualizar': 'Salvar' " icon="pi pi-save" [disabled]="!name()" [loading]="saving()"
+            (click)="onSave()" />
+    </div>
+</app-dialog>

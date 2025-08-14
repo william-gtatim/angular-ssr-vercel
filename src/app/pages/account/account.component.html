@@ -1,0 +1,20 @@
+<app-page-template [headerFixed]="true" [showSidebar]="false">
+    <div header-left>
+        <div class="header-title">
+            <app-header-back title="Minhas contas e cartões" />
+        </div>
+    </div>
+    <div header-right>
+        <p-button label="Adicionar" [text]="true" (click)="onAdd()" />
+    </div>
+    <div class="page-content">
+        <ul>
+            @for (item of accountService.accounts(); track item.id) {
+                <li><app-account-item [account]="item" [balance]="accountService.accountsBalance().get(item.id) ?? 0" /></li>
+            }
+        </ul>
+    </div>
+</app-page-template>
+<app-account-edit/>
+<app-account-delete/>
+<app-account-ajustament />
